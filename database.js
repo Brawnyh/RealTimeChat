@@ -1,3 +1,5 @@
+const { CONSTRAINT } = require('sqlite3');
+
 const sqlite3 = require('sqlite3').verbose();
 let sql;
 let msg;
@@ -7,7 +9,6 @@ let msg;
 const db=new sqlite3.Database('./chat.db',sqlite3.OPEN_READWRITE,(err) =>{
     if(err) return console.error(err.message);
 });
-
 //create table
 //sql=`CREATE TABLE Users(id INTEGER PRIMARY KEY,name,email)`;
 //db.run(sql);
@@ -29,6 +30,13 @@ const db=new sqlite3.Database('./chat.db',sqlite3.OPEN_READWRITE,(err) =>{
 //db.run(msg,[],(err)=>{
 //    if(err) return console.error(err.message);
 //    console.log('A new message has been added');
+//});
+
+//conex=`ALTER TABLE Messages ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES Users(id)`;
+
+//db.run(conex,[],(err)=>{
+//    if(err) return console.error(err.message);
+//    console.log('Foreign key constraint added to Messages table');
 //});
 
 msg=`SELECT * FROM Messages`;
