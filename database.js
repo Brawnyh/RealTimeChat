@@ -50,3 +50,5 @@ db.all(sql,[],(err,rows)=>{
     if(err) return console.error(err.message);
     console.log(rows);
 });
+
+module.exports=db;
