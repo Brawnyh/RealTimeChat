@@ -15,12 +15,22 @@ app.get('/',(req,res)=>{
 
 
 app.get('/messages',(req,res)=>{
-    res.send('Here are the messages');
+    res.status(200).send('Here are the messages!');
 });
+
 
 //esto es lo q nos permite registrar algo en la base de datos
 app.post('/messages:id',(req,res)=>{
-    res.send(`Message with id ${req.params.id} has been posted`);
+    const {id}= req.params;
+    const {msg}= req.body;
+    if(!msg){
+        res.status(418).send({message:"pls send a message"});
+    }
+
+    res.send({
+        Message: `${msg} with id ${id} has been posted`,
+    });
+
 });
 
 app.listen(PORT,()=>{
