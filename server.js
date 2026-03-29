@@ -9,7 +9,7 @@ console.log('Server is running on port 3000');
 //callbacks
 
 app.get('/',(req,res)=>{
-    res.send('Welcome to the live chat application');
+    res.send('Welcome to the live chat application holaaa');
 });
 
 
@@ -32,6 +32,8 @@ app.post('/messages:id',(req,res)=>{
     });
 
 });
+
+app.
 
 app.listen(PORT,()=>{
     console.log(`Server is listening on port:${PORT}`);
